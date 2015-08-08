@@ -7,12 +7,11 @@
   <%= csrf_meta_tags %>
   <%= favicon_link_tag 'favicon.ico' %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <%= yield :meta_set %>
 </head>
 <body>
-
-<%= render partial: "layouts/header" %>
-<%= yield %>
-<%= render partial: "layouts/footer" %>
-
+  <%= render partial: "layouts/header" %>
+  <%= yield %>
+  <%= render partial: "layouts/footer" %>
 </body>
 </html>
