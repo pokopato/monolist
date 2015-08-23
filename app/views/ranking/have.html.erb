@@ -1,0 +1,31 @@
+<div class="row">
+<% num = 0 %>
+<% @ranking_haves.each do |r| %>
+  <% num += 1 %>
+  <div class="col-md-offset-2 col-md-8" style="text-align: center;">
+    
+    <% if num == 1 %>
+      <% # １位は金色表示 %>
+      <h1 style="color: #daa520; font-size: 5em"><%= num %>位</h1>
+    <% elsif num == 2 %>
+      <% # ２位は銀色表示 %>
+      <h1 style="color: #c0c0c0; font-size: 4em"><%= num %>位</h1>
+    <% else %>
+      <h1><%= num %>位</h1>
+    <% end %>
+    
+    <br />
+    
+    <div>
+      <% if r.medium_image.present? %>
+        <%= link_to image_tag(r.medium_image, alt: r.title), r.detail_page_url, target: '_blank' %>
+      <% else %>
+        <%= link_to image_tag('no-image.png', alt: r.title), r.detail_page_url, target: '_blank' %>
+      <% end %>
+    </div>
+    <h3><%= link_to r.title, r.detail_page_url, target: '_blank' %>（<%= r.have_count %>）</h3>
+    
+    <hr />
+  </div>
+<% end %>
+</div>

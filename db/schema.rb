@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150708042943) do
+ActiveRecord::Schema.define(version: 20150823143044) do
 
   create_table "items", force: :cascade do |t|
     t.string   "asin"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 20150708042943) do
     t.string   "raw_info"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "have_count"
+    t.integer  "want_count"
   end
 
   add_index "items", ["asin"], name: "index_items_on_asin", unique: true
